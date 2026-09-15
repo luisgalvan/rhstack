@@ -1,0 +1,24 @@
+name: skill-docs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check-generated-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - name: Regenerate SKILL.md from templates
+        run: bun run gen:skill-docs
+      - name: Fail if regeneration produced a diff
+        run: |
+          if ! git diff --quiet -- skills; then
+            echo "::error::Generated SKILL.md files are out of sync with their .tmpl sources."
+            echo "Run 'bun run gen:skill-docs' locally and commit the result."
+            git diff -- skills
+            exit 1
+          fi

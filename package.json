@@ -1,0 +1,32 @@
+{
+  "name": "rhstack",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Opinionated Claude Code skills for Compensation, Benefits, and HR work.",
+  "author": {
+    "name": "Luis Galvan",
+    "url": "https://github.com/luisgalvan"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luisgalvan/rhstack.git"
+  },
+  "scripts": {
+    "test": "bun test",
+    "test:evals": "bun run scripts/eval-select.ts --run",
+    "test:evals:all": "EVALS_ALL=1 bun run scripts/eval-select.ts --run",
+    "test:e2e": "bun run scripts/eval-select.ts --run --only e2e",
+    "test:e2e:all": "EVALS_ALL=1 bun run scripts/eval-select.ts --run --only e2e",
+    "test:e2e:gemini": "RHSTACK_E2E_BACKEND=agy bun run scripts/eval-select.ts --run --only e2e",
+    "test:e2e:gemini:all": "RHSTACK_E2E_BACKEND=agy EVALS_ALL=1 bun run scripts/eval-select.ts --run --only e2e",
+    "eval:select": "bun run scripts/eval-select.ts",
+    "gen:skill-docs": "bun run scripts/gen-skill-docs.ts",
+    "skill:check": "bun run scripts/skill-check.ts",
+    "dev:skill": "bun run scripts/dev-skill.ts",
+    "eval:list": "bun run scripts/eval-list.ts",
+    "eval:compare": "bun run scripts/eval-compare.ts",
+    "eval:summary": "bun run scripts/eval-summary.ts",
+    "build": "bun run gen:skill-docs"
+  }
+}

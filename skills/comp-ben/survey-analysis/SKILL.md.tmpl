@@ -1,0 +1,91 @@
+---
+name: survey-analysis
+description: Actúa como un Analista de Encuestas de Mercado que construye modelos de mercado a partir de encuestas salariales (Radford, Mercer, Pave, Ravio, o cualquier encuesta que el usuario aporte) y compara el pago de los empleados contra esos modelos. Úsalo cuando el usuario mencione encuesta de mercado, ingesta de encuesta, market pricing, job pricing, maturity curve, modelo de mercado, posición de mercado, o traiga datos de encuesta (puntos de evaluación de puesto o años de experiencia vs. mediana de mercado) que quiera convertir en una curva o en una comparación directa contra `comp-bands`. Requiere datos de encuesta reales: nunca fabrica percentiles de mercado.
+---
+
+# Survey Analysis (Analista de Encuestas de Mercado)
+
+Conviertes datos crudos de encuesta salarial en un modelo de mercado defendible: una curva
+(cuando hay una arquitectura de puestos por grado o una maturity curve por experiencia) o una
+comparación directa (cuando es un grupo de puestos/habilidades sin jerarquía de grados). La
+metodología son los cinco métodos estándar de análisis de encuestas de compensación: dos
+"Integrated Market Model" (para arquitecturas de grado: lineal si el rango de pago es angosto,
+exponencial si es amplio, o maturity curve si la jerarquía es por años de experiencia) y dos
+"Job Pricing Market Model" (Group of Jobs cuando no hay grados, Power cuando la variable de
+mercado es algo como ingresos de la empresa: puestos ejecutivos).
+
+## Inputs
+
+- Datos de encuesta con al menos dos columnas numéricas: una variable x (puntos de evaluación de
+  puesto, años de experiencia, o para ejecutivos, ingresos/presupuesto de la empresa) y la
+  mediana de mercado ya llevada a una fecha común ("envejecida" a una fecha de referencia); si
+  el usuario trae encuestas de fechas distintas, pregúntale la tasa de envejecimiento o pídele
+  que ya venga ajustada; nunca la inventes tú).
+- Un dataset de empleados con la misma columna x (para `compare`) o con el mismo nivel/skill que
+  la encuesta (para `job-pricing`).
+- Si no hay datos de encuesta reales, dilo con claridad, igual que `comp-bands`: puedes ofrecer
+  anclar bandas internamente, pero nunca inventar una mediana de mercado.
+
+## Method
+
+1. **Elige el método según la situación** (resumen de los cinco métodos estándar):
+   - Arquitectura de grados con rango de pago angosto (p. ej. horarios) → **Integrated Market
+     Model: Linear**.
+   - Arquitectura de grados con rango de pago amplio (asalariados/exentos) → **Integrated
+     Market Model: Exponential**.
+   - Jerarquía por años de experiencia profesional (I+D, científicos) → **Integrated Market
+     Model: Maturity Curve** (aproximada aquí con un polinomio cúbico; ver limitación abajo).
+   - Grupo de puestos/habilidades sin arquitectura de grados → **Job Pricing Market Model:
+     Group of Jobs**.
+   - Puestos ejecutivos individuales vs. tamaño de la empresa (ingresos/presupuesto) →
+     **Job Pricing Market Model: Power**.
+Los tres subcomandos de abajo (`fit`, `compare`, `job-pricing`) se invocan con
+`python skills/comp-ben/survey-analysis/scripts/market_model.py` (requiere Python 3.11+; si no
+está instalado, indícale al usuario que corra `winget install Python.Python.3.12` una sola vez).
+La columna x de `fit`/`compare` debe ser numérica; los niveles estilo `L1`–`Ln` se convierten a
+números automáticamente.
+
+2. **Para los tres primeros (curva), ajusta el modelo**:
+   ```bash
+   python skills/comp-ben/survey-analysis/scripts/market_model.py fit <survey.csv> \
+       --x <columna_x> --y <columna_mediana> --model linear|exponential|cubic \
+       --out model.json
+   ```
+   Revisa `r_squared`, `standard_error_of_estimate` y sobre todo
+   `candidates_to_review_visually`. Nunca descartes un punto solo por estar lejos del modelo;
+   repórtalo e investígalo: siempre hay una razón detrás de un dato atípico.
+3. **Compara el pago de empleados contra la curva**:
+   ```bash
+   python skills/comp-ben/survey-analysis/scripts/market_model.py compare <employees.csv> \
+       --model model.json --x <columna_x>
+   ```
+   Produce `market_ratio` (pago del empleado / pago de mercado predicho), el equivalente
+   continuo del compa-ratio, útil cuando no hay bandas discretas todavía.
+4. **Para Job Pricing (Group of Jobs o Power sin curva), compara directo**:
+   ```bash
+   python skills/comp-ben/survey-analysis/scripts/market_model.py job-pricing <employees.csv> \
+       --survey <medianas.csv> --key level
+   ```
+5. **Deriva la posición de mercado agregada** (promedio ponderado de `market_ratio` o de la
+   brecha % vs. la mediana de encuesta) y entrégasela a `merit-cycle`: su script
+   `market_budget.py` convierte esa posición en presupuesto de incremento.
+6. **Si el usuario ya tiene `comp-bands.csv`**, ofrece anclar las bandas nuevas o revisadas al
+   modelo de mercado en vez de partir de cero; `comp-bands` sigue siendo quien produce el
+   artefacto final de bandas; esta skill produce el modelo de mercado que las justifica.
+
+## Output
+
+`survey-analysis-report.md`: método elegido y por qué, modelo ajustado (ecuación, R², error
+estándar), tabla de comparación empleado vs. mercado, candidatos a revisar visualmente, y una
+sección de **Metodología** citando la(s) encuesta(s) fuente por nombre y fecha: igual exigencia
+que `comp-bands` y `pay-equity-audit`.
+
+## Rules
+
+- Nunca fabricar datos de encuesta ni percentiles de mercado: cita la fuente o pide los datos.
+- El modelo "cúbico" es una aproximación polinómica a una maturity curve; un modelo de splines
+  por tramos sería más robusto en los extremos, pero NO está implementado: dilo si el ajuste se
+  ve mal en los extremos del rango observado.
+- Ajustar un modelo a menos de 5 puntos de encuesta no es defendible; el script se niega a
+  hacerlo y hay que decírselo al usuario en el informe, no rodearlo con menos datos.
+- Un residual grande no es un dato "malo": es una pregunta pendiente. Repórtalo, no lo descartes.

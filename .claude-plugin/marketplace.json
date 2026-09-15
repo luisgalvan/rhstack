@@ -1,0 +1,18 @@
+{
+  "name": "luisgalvan",
+  "owner": {
+    "name": "Luis Galvan",
+    "url": "https://github.com/luisgalvan"
+  },
+  "plugins": [
+    {
+      "name": "rhstack",
+      "source": {
+        "source": "github",
+        "repo": "luisgalvan/rhstack"
+      },
+      "description": "Equipo virtual de RR. HH. para Agentes de IA",
+      "category": "Productivity"
+    }
+  ]
+}

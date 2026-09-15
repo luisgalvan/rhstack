@@ -1,0 +1,14 @@
+# Pre-baked toolchain for rhstack CI: Bun (skill-doc generation, tests) + Python 3 (stdlib-only
+# analysis scripts). No browser/Playwright layer: rhstack has nothing to automate a UI for.
+FROM oven/bun:1-slim
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 ca-certificates git \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+COPY package.json ./
+RUN bun install
+COPY . .
+
+CMD ["bun", "test"]

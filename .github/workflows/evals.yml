@@ -1,0 +1,34 @@
+name: evals
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  free-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: bun test
+
+  paid-evals:
+    needs: free-tests
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - name: Skip paid evals if no API key is configured
+        if: ${{ env.ANTHROPIC_API_KEY == '' }}
+        run: echo "::warning::ANTHROPIC_API_KEY not set, skipping paid evals. See TODOS.md."
+      - name: Run diff-based paid evals
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: bun run test:evals
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}

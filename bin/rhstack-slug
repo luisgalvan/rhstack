@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# rhstack-slug: normaliza el nombre de una skill o artefacto al slug kebab-case
+# que gen-skill-docs.ts y las skills mismas esperan para nombres de archivo.
+set -euo pipefail
+
+[ $# -ge 1 ] || { echo "uso: rhstack-slug <name>" >&2; exit 1; }
+
+echo "$*" \
+  | tr '[:upper:]' '[:lower:]' \
+  | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//'

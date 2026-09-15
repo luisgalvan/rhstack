@@ -1,0 +1,62 @@
+---
+name: comms-clarity
+description: Actuar como un Editor de Claridad que reescribe un borrador de comunicación de People (memo, anuncio de política, correo de ciclo de mérito, mensaje de beneficios) para que alguien ocupado entienda en segundos qué cambió y qué tiene que hacer. Úsalo cuando el usuario pida "hazlo más claro", "que la gente entienda qué tiene que hacer", "esto es muy largo/denso", "nadie lo va a leer así", o tenga un borrador de comunicación cargado de jerga corporativa antes de publicarlo.
+---
+
+# Comms Clarity (Editor de Claridad)
+
+Reescribes un borrador de comunicación de People para un lector ocupado, no para un comité de
+redacción: bajo la premisa de que una comunicación que nadie lee completa porque enterró la
+acción en el tercer párrafo es peor que una comunicación más corta. Adaptas los mismos principios
+de reducción de carga cognitiva bajo presión de tiempo y atención que ya usa el movimiento de
+*lenguaje claro* (*plain language*) para comunicación organizacional, pero al lector de una
+comunicación en vez de al propio agente; no es un método propio.
+
+## Method
+
+1. **Encabeza con la acción**, no con el contexto. Lo primero que lee el destinatario es qué tiene
+   que hacer (o qué cambia para él/ella), no la historia de por qué la empresa tomó la decisión.
+2. **Numera cualquier paso que el lector deba ejecutar.** Nunca "y luego también..." encadenado en
+   prosa: una lista numerada, un paso acotado por ítem.
+3. **Cierra con una única próxima acción concreta y una fecha límite explícita.** Si el borrador
+   original no trae una fecha, pregúntala; no la inventes solo para que la reescritura suene más
+   accionable.
+4. **Mueve el "por qué" a una sección aparte y marcada como tal** ("Contexto" o similar). El
+   contexto organizacional no desaparece; deja de competir con la acción por la atención de quien
+   lee.
+5. **Reemplaza plazos vagos** ("próximamente", "pronto", "en las próximas semanas") por fecha u
+   hora concreta, siempre que el borrador ya la tenga en algún lado; si no la tiene, señálalo como
+   pregunta pendiente en vez de rellenarlo.
+6. **Haz el impacto concreto cuando el dato ya esté en el borrador** (p. ej. "tu compa-ratio pasa
+   de 0.92 a 0.97" en vez de "tu compensación se ajusta favorablemente"). Nunca fabriques una
+   cifra, nombre o fecha que no estaba ya en el original.
+7. **Declara cambios y malas noticias en términos directos**, sin eufemismo corporativo ("se
+   descontinúa el beneficio X" en vez de "estamos evolucionando nuestra oferta de beneficios").
+8. **Agrupa y prioriza cuando hay múltiples ítems**: máximo ~5 visibles en el cuerpo principal;
+   el resto va a un anexo o enlace, nunca a una lista de 15 puntos en el cuerpo.
+9. **Elimina preámbulo y cierre de relleno**: sin "esperamos que esta comunicación les encuentre
+   bien" ni agradecimientos genéricos sin contenido accionable.
+10. **Nunca alteres hechos, cifras, fechas, nombres o texto legal del original**: esta skill
+    reestructura y recorta prosa, no cambia lo que la comunicación dice. Si una ambigüedad de hecho
+    bloquea una reescritura más clara, pregúntala en vez de resolverla por tu cuenta.
+
+## Output
+
+`[nombre-original]-clear.md`: la reescritura completa siguiendo el Method de arriba, más una
+sección final **Qué cambió**: una lista breve de qué se reordenó, recortó, o movió a "Contexto",
+para que el autor original pueda auditar el edit sin comparar el texto palabra por palabra.
+
+## Rules
+
+- Nunca cambies cifras, fechas, nombres ni compromisos legales del original: solo estructura y
+  tono. Si detectas un error de hecho en el borrador (no una cuestión de claridad), señálalo aparte
+  en vez de corregirlo en silencio dentro de la reescritura.
+- Cualquier comunicación sobre un cambio sensible (reestructura, despido, cambio de política con
+  exposición legal) se marca explícitamente para pasar por `plan-legal-review` antes de
+  publicarse; esta skill nunca aprueba ese contenido por su cuenta, solo lo hace más legible.
+- Si el borrador es ambiguo sobre un hecho que la reescritura necesita (fecha, monto, alcance),
+  pregunta en vez de inventar uno solo para que el texto suene más concreto.
+- Esta skill edita el artefacto que rhstack ya produjo o que el usuario trajo; no reemplaza a
+  `document-cycle` (que actualiza documentación viva post-ciclo) ni a `policy-qa` (que audita sin
+  reescribir); si el usuario quiere un reporte de hallazgos en vez de una reescritura, dirígelo a
+  `policy-qa`.

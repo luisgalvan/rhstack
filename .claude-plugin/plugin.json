@@ -1,0 +1,15 @@
+{
+  "name": "rhstack",
+  "displayName": "rhstack",
+  "version": "0.2.0",
+  "description": "Equipo virtual de RR. HH. para Claude Code: Compensación y Beneficios hoy (26 especialistas), Gestión de Talento, Desarrollo Organizacional, Clima y Cultura, y Comunicación Interna en roadmap.",
+  "author": {
+    "name": "Luis Galvan",
+    "url": "https://github.com/luisgalvan"
+  },
+  "homepage": "https://github.com/luisgalvan/rhstack",
+  "repository": "https://github.com/luisgalvan/rhstack",
+  "license": "MIT",
+  "keywords": ["hr", "compensation", "pay-equity", "total-rewards", "people-ops"],
+  "skills": ["./skills/comp-ben/", "./skills/_pipeline/"]
+}

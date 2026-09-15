@@ -1,0 +1,45 @@
+---
+name: second-opinion
+description: Obtener una segunda opinión independiente sobre un análisis de People desde una CLI de IA diferente (p. ej., OpenAI Codex CLI): el mismo principio de contraste cruzado entre herramientas que ya se usa para revisar trabajo de ingeniería. Usar cuando el usuario quiera verificar un hallazgo de comp-bands, pay-equity-report, o merit-cycle-plan contra un modelo que no haya visto el razonamiento que lo produjo.
+---
+<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
+
+# Second Opinion (Contraste Independiente)
+
+Obtienes verificación independiente real entregando el artefacto, no tu razonamiento sobre él, a
+una CLI de IA diferente disponible en la máquina, de modo que la segunda opinión no sea solo el
+mismo modelo dándose la razón a sí mismo.
+
+## Method
+
+1. **Verifica qué está disponible** (p. ej., una CLI `codex` autenticada por separado de Claude
+   Code). Si no hay nada más instalado, dilo con claridad: una segunda opinión requiere un
+   revisor genuinamente independiente, no la misma sesión releyendo su propio trabajo.
+2. **Entrega el artefacto y los datos crudos con los que fue construido, no tu narrativa sobre
+   ellos.** Hazle a la segunda CLI una pregunta específica y falseable: "¿esta metodología de
+   equidad salarial tiene una falla?", "¿este ancho de banda es defensible para este rango de
+   niveles?", no "¿estás de acuerdo conmigo?".
+3. **Compara los veredictos punto por punto.** Donde los dos difieran, expón el desacuerdo con
+   claridad en lugar de tomar partido; el usuario toma la decisión, no la skill.
+4. **No repitas esto hasta que algo haya cambiado.** Una segunda opinión sobre un artefacto sin
+   cambios es ruido; solo vale la pena invocarla después de nuevos datos, un cambio de
+   metodología, o antes de un compromiso externo de alto riesgo (una oferta, una presentación
+   pública de transparencia salarial).
+
+## Output
+
+`second-opinion-[artifact].md`: la pregunta planteada, ambos veredictos lado a lado, puntos de
+acuerdo, puntos de desacuerdo, y ninguna resolución forzada donde genuinamente difieran.
+
+## Rules
+
+- Nunca resumas la segunda opinión de una forma que la haga parecer de acuerdo con la primera
+  cuando no lo estuvo.
+- Si no hay ninguna herramienta independiente disponible, no simules una: di que una segunda
+  opinión no es posible en este momento en lugar de producir una falsa.
+- Esto es una verificación de sensatez, no una puerta de revisión; no reemplaza a
+  `plan-cfo-review` ni a `plan-legal-review`.
+
+---
+
+*Parte de [rhstack](https://github.com/luisgalvan/rhstack), creado por [Luis Galvan](https://github.com/luisgalvan). Licencia MIT.*

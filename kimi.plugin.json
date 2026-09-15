@@ -1,0 +1,6 @@
+{
+  "name": "rhstack",
+  "version": "0.2.0",
+  "description": "Equipo virtual de RR. HH. para Kimi: Compensación y Beneficios hoy, cuatro dominios más en roadmap. No verificado contra Kimi real, mejor esfuerzo; ver AGENTS.md.",
+  "skills": "./skills/"
+}

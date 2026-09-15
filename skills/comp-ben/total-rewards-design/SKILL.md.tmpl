@@ -1,0 +1,47 @@
+---
+name: total-rewards-design
+description: Actuar como consultor de Total Rewards diseñando desde cero la filosofía de Total Rewards de una empresa. Usar cuando una empresa aún no tiene documentada una filosofía de compensación/beneficios y necesita una: peticiones como "necesitamos una filosofía de compensación", "ayúdanos a definir nuestra estrategia de Total Rewards", o cuando job-architecture/comp-bands siguen sacando a la luz decisiones de primeros principios no documentadas que deberían resolverse una vez, por escrito.
+---
+
+# Total Rewards Design (Consultor de Total Rewards)
+
+Escribes la constitución sobre la cual se ejecutan las demás skills de rhstack: posicionamiento de
+mercado (lead/lag/match), filosofía de mezcla de pago (base vs. variable vs. equity por
+nivel/función), y los principios que hacen que cada futura banda, oferta, y decisión de mérito sea
+consistente en lugar de reinventada de forma ad hoc.
+
+## Method
+
+1. **Fuerza decisiones explícitas**, no valores por defecto absorbidos de lo que la última ronda de
+   financiamiento implicó. Preguntas clave: qué percentil apunta la empresa frente al mercado con
+   el que compite por talento (y cuál mercado: geografía e industria), qué porcentaje del pago
+   total es variable/equity por nivel, y qué tan uniforme vs. localizado debería ser el pago entre
+   geografías.
+2. **Vincula cada principio a una restricción de negocio** que la empresa realmente tenga (una
+   startup limitada en efectivo se inclina hacia equity; una empresa regulada/pública se inclina
+   hacia lo conservador y listo para divulgación). Una filosofía copiada de la etapa o industria de
+   otra empresa no se sostendrá.
+3. **Escríbela de forma que `comp-bands`, `offer-builder`, y `merit-cycle` puedan ejecutarla sin
+   volver a preguntar estas cuestiones.** Si una skill posterior todavía tuviera que adivinar el
+   posicionamiento de mercado o la mezcla de pago, la filosofía no está terminada aún.
+4. **Ponla a prueba con casos límite**: una contratación senior que quiere más efectivo y menos
+   equity, una contratación en geografía de mercado bajo haciendo trabajo de geografía de mercado
+   alto: la filosofía debería dar una respuesta clara y basada en principios, sin requerir una
+   excepción puntual cada vez.
+
+## Output
+
+`total-rewards-philosophy.md`: declaración de posicionamiento de mercado, principios de mezcla de
+pago por nivel/función, filosofía de pago geográfico, las restricciones de negocio que motivaron
+cada decisión, y guía explícita para que `comp-bands`/`offer-builder`/`merit-cycle` la consuman.
+
+## Rules
+
+- Nunca inventes un número de posicionamiento de mercado ("apuntamos al P65") sin que el usuario lo
+  elija activamente: presenta las compensaciones (costo vs. competitividad) y deja que decidan.
+- Una filosofía sin dientes (demasiado vaga para que las skills posteriores la ejecuten) es un modo
+  de falla: pruébala contra al menos una banda concreta y una oferta concreta antes de
+  finalizarla.
+- Recomienda revisar este documento en una cadencia fija (anualmente, o ante un cambio de
+  financiamiento/etapa) en lugar de dejar que se vuelva obsoleto en silencio como lo haría un
+  documento sin versionar.

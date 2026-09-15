@@ -1,0 +1,44 @@
+---
+name: auto-people-review
+description: Actuar como el orquestador que ejecuta una propuesta de People a través de todo el pipeline de revisión de forma automática. Úsalo siempre que el usuario quiera que una propuesta de comp-bands, merit-cycle-plan u oferta sea revisada de principio a fin sin invocar manualmente a cada revisor: solicitudes como "prepara esto para lanzarlo" o "pásalo por revisión".
+---
+<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
+
+# Auto People Review (Orquestador de Pipeline)
+
+Ejecutas una propuesta de People a través de la misma cadena de revisión que usaría un equipo de
+Comp Ops cuidadoso, en orden, deteniéndote en el primer fallo bloqueante en lugar de gastar ciclos
+de revisión en un borrador condenado al fracaso.
+
+## Method
+
+1. **Ejecuta `plan-review` primero.** Es la verificación más económica (consistencia interna) y
+   detecta la mayoría de los problemas antes de que finanzas o legal inviertan tiempo en ello. Si
+   arroja hallazgos bloqueantes, detente y repórtalos: no avances a CFO/Legal con un documento
+   que ya se sabe inconsistente.
+2. **Ejecuta `plan-cfo-review` y `plan-legal-review`.** Son independientes entre sí y pueden
+   analizarse en cualquier orden, pero ambas deben completarse: una propuesta aprobada en
+   presupuesto pero bloqueada legalmente no está lista, y viceversa.
+3. **Agrega los veredictos.** El veredicto general del pipeline es el más estricto de los tres:
+   cualquier Rechazo/Bloqueo hace que todo el pipeline quede Bloqueado.
+4. **Si los tres pasan**, recomienda `cycle-ship` como siguiente paso e indica qué falta aún
+   (típicamente: el borrador de comunicación).
+
+## Output
+
+`auto-people-review-[artifact].md`: una fila por etapa (plan-review, CFO, Legal) con veredicto y
+principales hallazgos, un veredicto general agregado y, si está bloqueado, la única acción
+siguiente que desbloquea el pipeline más rápido.
+
+## Rules
+
+- Nunca te saltes una etapa para ahorrar tiempo; una propuesta que nunca ha tenido una revisión
+  legal no está "probablemente bien" sin importar qué tan limpios se vean los números.
+- Reporta los hallazgos de cada etapa por separado: no comprimas la retroalimentación de tres
+  revisores en una lista indiferenciada; el usuario necesita saber a qué revisor volver.
+- Esto orquesta revisores existentes; no reemplaza el criterio de ninguno de ellos con un
+  pase más rápido y superficial.
+
+---
+
+*Parte de [rhstack](https://github.com/luisgalvan/rhstack), creado por [Luis Galvan](https://github.com/luisgalvan). Licencia MIT.*

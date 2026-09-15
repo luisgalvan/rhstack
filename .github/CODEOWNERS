@@ -1,0 +1,9 @@
+# Cualquier cambio requiere revisión del maintainer, sin excepción.
+# Esto evita que un PR se pueda mergear sin que una persona lo haya leído,
+# incluso si todos los checks automáticos pasan en verde.
+*                           @luisgalvan
+
+# Los workflows de CI son el vector clásico de ataque en PRs de contribuyentes
+# externos (agregar `pull_request_target`, exfiltrar secretos, etc.): doble
+# atención aquí siempre.
+/.github/                  @luisgalvan

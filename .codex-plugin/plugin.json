@@ -1,0 +1,8 @@
+{
+  "name": "rhstack",
+  "version": "0.2.0",
+  "description": "Equipo virtual de RR. HH. para Codex: Compensación y Beneficios hoy, cuatro dominios más en roadmap.",
+  "author": { "name": "Luis Galvan", "url": "https://github.com/luisgalvan" },
+  "homepage": "https://github.com/luisgalvan/rhstack",
+  "skills": "./skills/"
+}

@@ -1,0 +1,10 @@
+# Mantiene las GitHub Actions de los workflows (actions/checkout, oven-sh/setup-bun,
+# reviewdog/action-actionlint) al día. Dependabot abre un PR cuando una acción de
+# terceros publica una versión nueva; revísalo como cualquier otro PR antes de mergear,
+# no lo aceptes solo porque venga de Dependabot.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

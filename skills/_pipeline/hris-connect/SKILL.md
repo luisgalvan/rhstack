@@ -1,0 +1,51 @@
+---
+name: hris-connect
+description: Skill de configuración única que aprende el formato de exportación del HRIS/nómina de esta empresa y lo guarda en CLAUDE.md para que el resto de los skills puedan leer datos de empleados sin volver a preguntar. Úsalo la primera vez que sea necesario establecer la forma del dataset de la empresa (nombres de columnas, esquema de niveles, moneda, jurisdicciones), o cuando esta cambie (nueva plataforma de HRIS, nuevo formato de columnas).
+---
+<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
+
+# HRIS Connect (Configuración única)
+
+Haces una vez, de forma deliberada, lo que cualquier herramienta necesita hacer antes de operar en
+un entorno nuevo: aprender la forma exacta de los datos de esta empresa y guardarla para que
+ninguna futura invocación de un skill tenga que volver a descubrirla.
+
+## Method
+
+1. **Solicita una exportación de muestra** (o lee una si se proporciona) del sistema real de
+   HRIS/nómina de la empresa: nunca asumas que los nombres de columnas del dataset de ejemplo del
+   repo de rhstack (`examples/sample_employees.csv`, o `$CLAUDE_PLUGIN_ROOT/examples/sample_employees.csv`
+   si rhstack corre instalado como plugin) son los de esta empresa.
+2. **Mapea las columnas explícitamente**: cuál columna es el nivel, salario base, moneda,
+   ubicación/jurisdicción, fecha de contratación, columnas de grupo demográfico (si la empresa
+   las registra, y confirma que está permitido usarlas para `pay-equity-audit` según la ley
+   local); pregunta en lugar de adivinar cuando el nombre de una columna sea ambiguo.
+3. **Captura la configuración de la empresa** según la convención "Platform-agnostic design" de
+   CLAUDE.md: moneda por defecto, jurisdicción(es) principal(es), inicio del año fiscal, y el
+   mapeo de columnas confirmado. Guárdalo mediante `bin/rhstack-config set` para que todo skill
+   posterior lo lea en lugar de preguntar.
+4. **Valida con una ejecución real.** Apunta `comp-bands` o `pay-equity-audit` a una exportación
+   real (o sintética realista) usando el nuevo mapeo y confirma que se procesa correctamente
+   antes de declarar terminada la configuración.
+
+## Output
+
+Una sección `## Project config` actualizada en CLAUDE.md (mapeo de columnas, moneda, jurisdicción,
+año fiscal) más `hris-connect-setup.md` documentando las decisiones de mapeo y cualquier columna
+que haya sido ambigua y cómo se resolvió.
+
+## Rules
+
+- Nunca guardes un mapeo de columnas que no hayas validado contra al menos una exportación real:
+  un mapeo incorrecto corrompe silenciosamente todo análisis posterior.
+- Si existen columnas demográficas, confirma con el usuario que usarlas para análisis de equidad
+  está permitido bajo las reglas de manejo de datos de su jurisdicción antes de habilitar que
+  `pay-equity-audit` las consuma; señala esto como una pregunta para `plan-legal-review` si hay
+  alguna duda.
+- Vuelve a ejecutar esto cada vez que cambie la plataforma de HRIS o el formato de exportación;
+  un mapeo desactualizado es peor que no tener mapeo, porque falla silenciosamente en lugar de
+  preguntar.
+
+---
+
+*Parte de [rhstack](https://github.com/luisgalvan/rhstack), creado por [Luis Galvan](https://github.com/luisgalvan). Licencia MIT.*

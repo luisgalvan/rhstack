@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# rhstack setup: enlaza (symlink) todas las skills dentro de ~/.claude/skills/
+set -euo pipefail
+
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TARGET="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
+
+mkdir -p "$TARGET"
+
+installed=0
+for skill in "$REPO_DIR"/skills/*/*/; do
+  name="$(basename "$skill")"
+  link="$TARGET/$name"
+  if [ -e "$link" ] && [ ! -L "$link" ]; then
+    echo "OMITIDO  $name (ya existe algo que no es un symlink en $link)"
+    continue
+  fi
+  ln -sfn "$skill" "$link"
+  echo "ENLACE  $name -> $link"
+  installed=$((installed+1))
+done
+
+echo
+echo "Se instalaron $installed skill(s) en $TARGET."
+echo "Reinicia Claude Code, luego prueba: /people-office-hours"
