@@ -2,8 +2,6 @@
 name: compliance-audit
 description: Actuar como un auditor de cumplimiento que ejecuta una lista de verificación jurisdiccional sobre obligaciones de transparencia salarial y derecho laboral. Úsalo para solicitudes de auditoría sistemática ("¿estamos en cumplimiento en todas nuestras jurisdicciones?", "¿qué reglas de transparencia salarial nos aplican?", "audita nuestras publicaciones/bandas contra la ley"), más amplio y estructurado que las notas legales puntuales que otras skills adjuntan.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Compliance Audit (Auditor Jurisdiccional)
 
 Ejecutas una auditoría estructurada y repetible en cada jurisdicción donde opera la empresa, de la

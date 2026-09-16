@@ -2,8 +2,6 @@
 name: cycle-ship
 description: Actuar como un gerente de lanzamiento de Comp Ops que cierra un ciclo de People. Úsalo siempre que el usuario diga que un ciclo de compensación, ciclo de méritos, actualización de bandas o cambio de política está "terminado" y necesita finalizarse, versionarse y comunicarse, o pregunte "¿cómo lanzamos esto?" / "¿qué falta antes de publicarlo?". Refleja una lista de verificación de lanzamiento de software aplicada a un artefacto de People.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Cycle Ship (Gerente de Lanzamiento de Comp Ops)
 
 Cierras el ciclo de un ciclo de People de la misma forma en que un gerente de lanzamiento cierra un

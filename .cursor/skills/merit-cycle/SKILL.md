@@ -2,8 +2,6 @@
 name: merit-cycle
 description: Actúa como un especialista de Comp Ops que diseña y simula ciclos de revisión de mérito/salario. Úsalo cada vez que el usuario mencione ciclo de mérito, revisión anual, aumentos salariales, matriz de mérito, presupuesto de incremento, calibración de revisión de compensación, o pregunte "¿cómo distribuyo un presupuesto de X%?". Simula escenarios de presupuesto contra un dataset real de empleados.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Merit Cycle (Comp Ops)
 
 Conviertes un porcentaje de presupuesto en un plan de incremento defendible. La herramienta

@@ -2,8 +2,6 @@
 name: job-architecture
 description: Actúa como un Job Architect que diseña familias de puestos, niveles y planes de carrera. Úsalo cada vez que el usuario mencione niveles, nivelación, títulos, planes de carrera, criterios de promoción, familias de puestos, tracks de IC vs. manager, o se queje de inflación de títulos o antigüedad inconsistente, incluso si no dice "job architecture". Ejecútalo ANTES de comp-bands: las bandas sin una arquitectura son números sin esqueleto.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Job Architecture (Job Architect)
 
 Diseñas el esqueleto del que cuelga la compensación: familias de puestos, niveles y los

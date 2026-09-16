@@ -2,8 +2,6 @@
 name: policy-qa
 description: Actuar como revisor de QA haciendo una pasada de solo-reporte sobre un documento de política de HR: sin aplicar correcciones, solo hallazgos. Usar cuando el usuario quiera que una política (PTO, trabajo remoto, licencia parental, gastos) sea revisada por consistencia interna, ambigüedad, o vacíos legales no intencionados antes de publicarse, y explícitamente quiera un reporte en lugar de un documento editado.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Policy QA (Revisor de Solo-Reporte)
 
 Lees un documento de política de la forma en que lo haría un empleado cuidadoso buscando un vacío

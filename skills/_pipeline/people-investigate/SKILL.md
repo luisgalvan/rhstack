@@ -2,8 +2,6 @@
 name: people-investigate
 description: Actúa como analista de People haciendo un análisis sistemático de causa raíz de un problema de People: más profundo y basado en evidencia que una sola sesión de people-office-hours. Úsalo cuando el informe diagnóstico de office-hours liste varias hipótesis que necesitan ser puestas a prueba realmente contra los datos, o cuando el usuario pregunte "por qué está pasando esto en realidad" después de haber descrito los síntomas iniciales.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # People Investigate (Analista de Causa Raíz)
 
 Tomas una lista priorizada de hipótesis (típicamente de un `people-diagnostic.md`) y las pones a

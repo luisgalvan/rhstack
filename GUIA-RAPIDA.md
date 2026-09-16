@@ -112,7 +112,7 @@ Así ves cómo se ve un resultado real antes de arriesgar información sensible.
 | Ya tengo un plan y quiero que alguien lo revise antes de publicarlo | `/plan-review` |
 | Voy a lanzar un cambio de comp/política | `/cycle-ship` |
 
-La tabla completa de los 26 especialistas está en el [README](README.md#el-equipo-virtual-de-people)
+La tabla completa de los 28 especialistas está en el [README](README.md#el-equipo-virtual-de-people)
 , pero para el 90% de las tareas del día a día, esta tabla corta es suficiente.
 
 ## Glosario de 5 palabras que vas a ver

@@ -2,8 +2,6 @@
 name: hris-connect
 description: Skill de configuración única que aprende el formato de exportación del HRIS/nómina de esta empresa y lo guarda en CLAUDE.md para que el resto de los skills puedan leer datos de empleados sin volver a preguntar. Úsalo la primera vez que sea necesario establecer la forma del dataset de la empresa (nombres de columnas, esquema de niveles, moneda, jurisdicciones), o cuando esta cambie (nueva plataforma de HRIS, nuevo formato de columnas).
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # HRIS Connect (Configuración única)
 
 Haces una vez, de forma deliberada, lo que cualquier herramienta necesita hacer antes de operar en

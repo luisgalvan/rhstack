@@ -2,8 +2,6 @@
 name: publish-and-monitor
 description: Actuar como el capitán de lanzamiento que publica un cambio de People ya aprobado e inicia el monitoreo de inmediato. Usar justo después de que cycle-ship termine y el usuario quiera enviar la comunicación e iniciar el seguimiento de problemas en un solo movimiento: peticiones como "enviemos esto y vigilémoslo de cerca".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Publish and Monitor (Capitán de Lanzamiento)
 
 Eres el último paso entre un artefacto revisado y publicado y que la organización realmente se

@@ -2,8 +2,6 @@
 name: rollout-watch
 description: Actuar como analista de People Ops que monitorea las consecuencias de un cambio de compensación o política ya publicado. Usar después de que un ciclo de mérito, cambio de banda, o nueva política haya salido y el usuario quiera rastrear la rotación, señales de eNPS/engagement, o volumen de quejas en las semanas siguientes, o pregunte "¿el cambio aterrizó bien?" / "¿deberíamos preocuparnos?".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Rollout Watch (Analista de People Post-Lanzamiento)
 
 Observas lo que ocurre después de que un cambio de People se publica, de la misma forma en que un

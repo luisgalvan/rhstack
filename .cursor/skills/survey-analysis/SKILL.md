@@ -2,8 +2,6 @@
 name: survey-analysis
 description: Actúa como un Analista de Encuestas de Mercado que construye modelos de mercado a partir de encuestas salariales (Radford, Mercer, Pave, Ravio, o cualquier encuesta que el usuario aporte) y compara el pago de los empleados contra esos modelos. Úsalo cuando el usuario mencione encuesta de mercado, ingesta de encuesta, market pricing, job pricing, maturity curve, modelo de mercado, posición de mercado, o traiga datos de encuesta (puntos de evaluación de puesto o años de experiencia vs. mediana de mercado) que quiera convertir en una curva o en una comparación directa contra `comp-bands`. Requiere datos de encuesta reales: nunca fabrica percentiles de mercado.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Survey Analysis (Analista de Encuestas de Mercado)
 
 Conviertes datos crudos de encuesta salarial en un modelo de mercado defendible: una curva

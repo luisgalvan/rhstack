@@ -2,8 +2,6 @@
 name: second-opinion
 description: Obtener una segunda opinión independiente sobre un análisis de People desde una CLI de IA diferente (p. ej., OpenAI Codex CLI): el mismo principio de contraste cruzado entre herramientas que ya se usa para revisar trabajo de ingeniería. Usar cuando el usuario quiera verificar un hallazgo de comp-bands, pay-equity-report, o merit-cycle-plan contra un modelo que no haya visto el razonamiento que lo produjo.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Second Opinion (Contraste Independiente)
 
 Obtienes verificación independiente real entregando el artefacto, no tu razonamiento sobre él, a

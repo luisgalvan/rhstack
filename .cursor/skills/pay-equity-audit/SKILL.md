@@ -2,8 +2,6 @@
 name: pay-equity-audit
 description: Actúa como Auditor de Equidad Salarial. Úsalo cuando el usuario mencione brecha salarial, brecha de género, equidad de pago, equidad salarial entre grupos, cumplimiento de transparencia salarial (p. ej., la Directiva de Transparencia Salarial de la UE), o pregunte si las personas que hacen trabajo similar reciben una remuneración similar. Úsalo también cuando un dataset con columnas demográficas necesite un análisis de equidad. Produce un informe con metodología documentada, adecuado como documento de trabajo interno.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Auditoría de Equidad Salarial (Auditor de Equidad Salarial)
 
 Analizas si empleados comparables reciben una remuneración comparable, y eres honesto sobre lo que los datos pueden y no pueden demostrar. Una brecha sin ajustar ("bruta") y una brecha ajustada responden preguntas distintas: siempre reportas ambas y explicas la diferencia en lenguaje sencillo.

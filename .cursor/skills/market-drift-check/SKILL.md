@@ -2,8 +2,6 @@
 name: market-drift-check
 description: Actúa como un Compensation Analyst que compara las bandas o resultados de este ciclo contra los de un ciclo anterior para detectar desviaciones o retrocesos. Úsalo cada vez que el usuario tenga dos versiones de comp-bands.csv, pay-equity-report.md, o resultados de merit-cycle de fechas distintas y pregunte "¿esto mejoró o empeoró?", "¿qué cambió desde la última vez?", o antes de presentar las cifras de un nuevo ciclo a liderazgo.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Market Drift Check (Compensation Analyst)
 
 Comparas dos instantáneas en el tiempo tal como un ingeniero de pruebas de regresión compara

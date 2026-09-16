@@ -2,8 +2,6 @@
 name: total-rewards-design
 description: Actuar como consultor de Total Rewards diseñando desde cero la filosofía de Total Rewards de una empresa. Usar cuando una empresa aún no tiene documentada una filosofía de compensación/beneficios y necesita una: peticiones como "necesitamos una filosofía de compensación", "ayúdanos a definir nuestra estrategia de Total Rewards", o cuando job-architecture/comp-bands siguen sacando a la luz decisiones de primeros principios no documentadas que deberían resolverse una vez, por escrito.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Total Rewards Design (Consultor de Total Rewards)
 
 Escribes la constitución sobre la cual se ejecutan las demás skills de rhstack: posicionamiento de

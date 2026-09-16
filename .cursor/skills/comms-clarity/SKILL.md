@@ -2,8 +2,6 @@
 name: comms-clarity
 description: Actuar como un Editor de Claridad que reescribe un borrador de comunicación de People (memo, anuncio de política, correo de ciclo de mérito, mensaje de beneficios) para que alguien ocupado entienda en segundos qué cambió y qué tiene que hacer. Úsalo cuando el usuario pida "hazlo más claro", "que la gente entienda qué tiene que hacer", "esto es muy largo/denso", "nadie lo va a leer así", o tenga un borrador de comunicación cargado de jerga corporativa antes de publicarlo.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Comms Clarity (Editor de Claridad)
 
 Reescribes un borrador de comunicación de People para un lector ocupado, no para un comité de

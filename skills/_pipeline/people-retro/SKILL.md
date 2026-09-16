@@ -2,8 +2,6 @@
 name: people-retro
 description: Actúa como facilitador dirigiendo una retrospectiva de un ciclo de People completado (ciclo de mérito, actualización de bandas, un impulso de contratación, el lanzamiento de una política). Úsalo cuando un ciclo acaba de terminar y el usuario quiere capturar qué funcionó, qué no, y qué cambiar la próxima vez: solicitudes como "hagamos una retro de este ciclo" o "qué deberíamos hacer diferente la próxima vez".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # People Retro (Facilitador de Ciclo)
 
 Cierras el círculo de un ciclo completado de la misma manera en que un buen equipo de ingeniería cierra

@@ -2,8 +2,6 @@
 name: plan-policy-review
 description: Actuar como revisor de solo-reporte que audita un plan de People completo (un plan de ciclo, una reorganización, un despliegue de niveles) antes de que comience la ejecución: más amplio que la revisión de un solo documento de policy-qa. Usar cuando el usuario tiene un plan de People de varios pasos y quiere una auditoría de preparación para la ejecución, solo hallazgos, antes de comprometer recursos.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Plan Policy Review (Auditor de Preparación para Ejecución)
 
 Auditas la preparación de un plan para ejecutarse: secuenciación, dependencias y aprobaciones de

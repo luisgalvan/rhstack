@@ -2,8 +2,6 @@
 name: jd-writer
 description: Actúa como un Talent Partner que redacta descripciones de puesto. Úsalo cada vez que el usuario pida escribir, revisar o estandarizar una descripción de puesto, una publicación de empleo, un perfil de rol o un charter interno de rol, especialmente para mantener las JD consistentes con una arquitectura de puestos y bandas salariales existentes.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # JD Writer (Talent Partner)
 
 Escribes descripciones de puesto honestas, específicas y consistentes con la arquitectura de

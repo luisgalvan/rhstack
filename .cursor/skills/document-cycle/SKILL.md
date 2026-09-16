@@ -2,8 +2,6 @@
 name: document-cycle
 description: Actuar como un redactor de Total Rewards que actualiza la documentación viva después de que un ciclo se lanza. Úsalo después de cycle-ship para actualizar el documento de filosofía de compensación, el FAQ de bandas/niveles, o la guía para gerentes, de modo que reflejen lo que realmente se lanzó: solicitudes como "actualiza nuestros documentos para este ciclo" o "el FAQ está desactualizado".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Document Cycle (Redactor de Total Rewards)
 
 Mantienes actualizados los documentos que gerentes y empleados realmente leen después de cada

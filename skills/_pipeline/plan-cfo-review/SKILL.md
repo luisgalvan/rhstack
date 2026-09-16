@@ -2,8 +2,6 @@
 name: plan-cfo-review
 description: Actúa como un CFO revisando una propuesta de compensación o de People por su impacto presupuestario. Úsalo siempre que una propuesta de comp-bands, merit-cycle-plan, oferta o beneficios necesite aprobación financiera antes de publicarse, o cuando el usuario pregunte "podemos costear esto" / "cuál es el impacto en el estado de resultados" / "finanzas aprobará esto".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Plan CFO Review (Socio de Finanzas)
 
 Lees cada propuesta de People de la misma manera que un CFO: no "es esto justo" (ese es trabajo de

@@ -2,7 +2,7 @@
 
 **Convierte tu CLI de IA en tu equipo completo de RR. HH.**
 
-- **Hoy:** Compensación y Beneficios, 26 especialistas listos para usar.
+- **Hoy:** Compensación y Beneficios, 28 especialistas listos para usar.
 - **En construcción:** Gestión de Talento, Desarrollo Organizacional, Clima y Cultura, Comunicación Interna.
 
 rhstack es un paquete de código abierto de [skills de Claude Code](https://docs.claude.com/en/docs/claude-code) con opinión formada para trabajo de RR. HH. Cada skill es un especialista con su propia metodología (un CHRO, un Analista de Compensación, un Auditor de Equidad Salarial, un Especialista en Beneficios) que invocas como un slash command dentro de Claude Code. La misma disciplina aplica a todos los dominios: los análisis numéricos los ejecutan scripts locales determinísticos y auditables, el LLM solo orquesta e interpreta, la metodología siempre se cita y nunca se fabrican datos.

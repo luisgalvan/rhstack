@@ -9,13 +9,18 @@ import { dirname, join } from "node:path";
 import { parseAllSkills } from "../test/helpers/skill-parser.ts";
 
 const REPO_ROOT = join(import.meta.dir, "..");
-const GENERATED_MARKER =
-  "<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->\n\n";
 
 // Cada SKILL.md puede terminar viéndose de forma aislada (un contribuyente que solo abre este
 // archivo, un plugin cacheado en la máquina de alguien) sin pasar nunca por el README del repo;
 // este footer deja la autoría/licencia visible ahí también, sin que cada plantilla tenga que
-// repetirlo a mano en las 26+ skills.
+// repetirlo a mano en las 28+ skills.
+//
+// A propósito NO metemos aquí un comentario HTML de "archivo generado, no editar": Claude Code
+// vuelca el contenido completo del SKILL.md en la conversación cuando alguien invoca la skill
+// (el usuario final lo ve tal cual, sin que el terminal lo trate como comentario invisible como
+// haría un navegador). La convención de nombres (SKILL.md.tmpl = fuente, SKILL.md = generado) +
+// CONTRIBUTING.md + la prueba de drift ya protegen contra ediciones manuales sin ensuciar lo que
+// ve el usuario final.
 const AUTHORSHIP_FOOTER =
   "\n---\n\n*Parte de [rhstack](https://github.com/luisgalvan/rhstack), creado por " +
   "[Luis Galvan](https://github.com/luisgalvan). Licencia MIT.*\n";
@@ -25,7 +30,7 @@ export function render(templateRaw: string): string {
   if (!match) throw new Error("a la plantilla le falta el bloque de frontmatter");
   const [, frontmatterBlock, body] = match;
   const trimmedBody = body.replace(/^\r?\n/, "").replace(/\r?\n+$/, "\n");
-  return frontmatterBlock + GENERATED_MARKER + trimmedBody + AUTHORSHIP_FOOTER;
+  return frontmatterBlock + trimmedBody + AUTHORSHIP_FOOTER;
 }
 
 // Cursor espera un directorio plano .cursor/skills/<name>/SKILL.md (sin subcarpetas de dominio),

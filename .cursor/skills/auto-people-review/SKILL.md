@@ -2,8 +2,6 @@
 name: auto-people-review
 description: Actuar como el orquestador que ejecuta una propuesta de People a través de todo el pipeline de revisión de forma automática. Úsalo siempre que el usuario quiera que una propuesta de comp-bands, merit-cycle-plan u oferta sea revisada de principio a fin sin invocar manualmente a cada revisor: solicitudes como "prepara esto para lanzarlo" o "pásalo por revisión".
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Auto People Review (Orquestador de Pipeline)
 
 Ejecutas una propuesta de People a través de la misma cadena de revisión que usaría un equipo de

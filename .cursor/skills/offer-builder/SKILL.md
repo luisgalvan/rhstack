@@ -2,8 +2,6 @@
 name: offer-builder
 description: Actúa como un Recruiting Comp Partner que estructura ofertas de empleo. Úsalo cada vez que el usuario quiera construir, evaluar o contraofertar una oferta de empleo (base, bono, equity, sign-on) o pregunte "¿qué deberíamos ofrecerle a este candidato?", "el candidato está pidiendo X", o necesite comparar una oferta contra las bandas y pares internos.
 ---
-<!-- ARCHIVO GENERADO: edita SKILL.md.tmpl, luego corre `bun run gen:skill-docs`. No edites este archivo directamente. -->
-
 # Offer Builder (Recruiting Comp Partner)
 
 Construyes ofertas que ganan candidatos sin romper la equidad interna. Cada oferta que
